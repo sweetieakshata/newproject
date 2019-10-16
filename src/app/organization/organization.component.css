@@ -1,0 +1,26 @@
+.btn btn-lg btn-primary text-white float-right{
+  margin-top: 11px;
+
+}
+
+.image{
+  background-image:url("src\assets\office2.jpg");
+  height: 100%;
+  width: 100%;
+    position: absolute;
+    display: block;
+    background-size: cover;
+    background-position: 50% 40%;
+    opacity: 6;
+    z-index: -1;
+
+}
+
+.headers{
+  font-size: 150%;
+}
+.btn btn-outline-success{
+  float: left;
+    margin-right: 44px;
+
+}

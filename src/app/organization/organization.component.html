@@ -1,0 +1,172 @@
+<div class="image"></div>
+
+
+<div class=" container ">
+
+  <button class="btn btn-lg btn-primary text-white float-right"  (click)="openAdd(modal,'Add')">Add New
+      Organization</button>
+    <ul class="nav justify-content-center items">
+        <span class="doctype"><h1>Organization</h1></span>
+        </ul>
+  </div>
+  <!-- </nav> -->
+  <br /><br />
+  <div class="container" id="search">
+      <form class="form-inline mr-auto ">
+          <input
+          class="form-control "
+
+              type="text"
+              placeholder="Search for Organization info"
+              aria-label="Search"
+
+              name="n1"
+              [(ngModel)]="searchstr"
+              id="search-box-round"
+          />
+      </form>
+  </div>
+  <br />
+  <div class="main-container container-fluid">
+    <!-- <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog> -->
+
+
+  <!-- <button class="btn btn-lg btn-info text-white float-right"  (click)="openAdd(modal,'Add')">Add New
+    Organization</button> -->
+  </div>
+
+
+
+
+  <div class="container">
+
+    <table class="table" [contextMenu]="basicMenu" [contextMenuSubject]="arr">
+      <thead class="headers">
+
+        <th>Index</th>
+        <th>Organization Name</th>
+        <th>Description</th>
+        <th>Active State</th>
+        <th id='text-align-right'>Actions</th>
+      </thead>
+      <tbody>
+         <tr *ngFor="let item of arr | paginate: config | grdFilter: {name: searchstr}; let i=index">
+
+            <td><b>{{item.id}}</b></td>
+            <td><b>{{item.name}}</b></td>
+            <td><b>{{item.description}}</b></td>
+            <td><b>{{item.isactive}}</b></td>
+          <td>
+            <button class="btn btn-success" (click)="openEdit(modal,'Update',i,item)">Edit</button> |
+            <button class="btn btn-danger" (click)="onOrgDelete(item.id)">Delete</button></td>
+        </tr>
+      </tbody>
+      <context-menu>
+        <ng-template contextMenuItem (execute)="showMessage('Hi, ' + $event.item.name)">
+          Say hi!
+        </ng-template>
+        <ng-template contextMenuItem divider="true"></ng-template>
+        <ng-template contextMenuItem let-item (execute)="showMessage($event.item.name + ' said: ' + $event.item.otherProperty)">
+          Bye, {{item?.name}}
+        </ng-template>
+        <!-- <ng-template contextMenuItem passive="true">
+          Input something: <input type="text">
+        </ng-template> -->
+      </context-menu>
+      <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    </table>
+  </div>
+
+
+        <ng-template #modal let-modal>
+        <div class="modal-header">
+            <h4>Add/Update Organization</h4>
+            <button type="button" class="btn btn-danger" (click)="modal.dismiss('Cross click')">Close
+                <!-- <span aria-hidden="true">Close</span> -->
+            </button>
+        </div>
+        <div class="modal-body">
+            <!-- <div class='col-6'> -->
+            <form (ngSubmit)='onFormSubmit(f)' #f="ngForm">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label for="designation">Organization Name</label>
+                                <div class="input-group">
+                                    <!-- <input  class="form-control" [(ngModel)]="name" placeholder="Name"
+                                        name="Name" required> -->
+                                        <input  name="Name" [(ngModel)]="name" class="form-control"  #Name="ngModel"   type="text" placeholder="Enter name" required>
+                                        <label class="alert alert-danger" *ngIf="Name.hasError('required') && !Name.pristine" >Name Required.</label>
+
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label for="description">Organization Description</label>
+                                <div class="input-group">
+                                    <input  name="Description" class="form-control" [(ngModel)]="description" placeholder="Enter desc"  #Desc="ngModel" type="text" required>
+                                      <label class="alert alert-danger" *ngIf="Desc.hasError('required') && !Desc.pristine" >Description is Required.</label>
+                                </div>
+                            </div>
+                            </td>
+                            </tr>
+                            <tr>
+                              <td>
+                            <div class="form-group">
+                              <label for="isactive">Active State</label>
+                              <div class="input-group">
+                                  <input name="Isactive"class="form-control" [(ngModel)]="isactive" placeholder="Active state" #Act="ngModel" type="text" required>
+                                  <label class="alert alert-danger" *ngIf="Act.hasError('required') && !Act.pristine" >activity Required.</label>
+
+                              </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-outline-dark">{{selectedOrganizationOption}} Organization</button>
+                </div>
+            </form>
+        </div>
+        <!-- </div> -->
+
+    </ng-template>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="dateOfBirth">Date of birth</label>
+              <div class="input-group">
+                <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-success" (click)="modal.close('Save click')">Save</button>
+        </div>
+      </ng-template>
+
+      <button class="btn btn-lg btn-outline-warning" (click)="open(content)">Save ur birth date</button>
+
+      <hr>
+
+      <pre>{{closeResult}}</pre>
+
+
+
