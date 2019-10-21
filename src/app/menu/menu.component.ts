@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrganizationdataService } from '../organizationdata.service';
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  email:string;
+  password:string;
+  constructor(private _userdata:OrganizationdataService){}
+   ngOnInit() {
   }
+  onLogOut(){
+    this._userdata.logout();
+  }
+  isLoggedIn(){
+    return this._userdata.isLoggedIn;
+  }
+
+  onsignin(){
+    if(this.email=="akshata@gmail.com" &&  this.password=="1234")
+    {
+      alert("success");
+    }
+
+  }
+
 
 }

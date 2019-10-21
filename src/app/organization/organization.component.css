@@ -5,6 +5,7 @@
 
 .image{
   background-image:url("src\assets\office2.jpg");
+  /* background-image:url(https://i.pravatar.cc/300); */
   height: 100%;
   width: 100%;
     position: absolute;

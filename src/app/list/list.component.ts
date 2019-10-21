@@ -66,6 +66,32 @@ this.contextMenu.menuData = { 'item': item };
 this.contextMenu.openMenu();
 }
 
+
+openadd(item){}
+
+onFormSubmit(item) {
+  console.log(item);
+  var req = {
+    id: 0,
+    description: item.description,
+    name: item.name
+  };
+  this._data.addOrganization(req).subscribe(
+    (data: Organization[]) => {
+      this.list = data;
+      alert('succefully added');
+      this.ngOnInit();
+    },
+    function (error) {
+      alert(error);
+    },
+    function () { }
+
+
+  );
+
+}
+
 openedit(item){
 console.log(item.id);
 this.tableForm.patchValue({

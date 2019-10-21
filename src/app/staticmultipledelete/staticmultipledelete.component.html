@@ -1,0 +1,48 @@
+<!-- <table cellpadding="1" cellspacing="1" class="table table-striped">
+    <thead>
+      <tr>
+
+        <th>Article Id</th>
+        <th>Article Name</th>
+        <th>description</th>
+
+       </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of arr" type="checkbox">
+            <td >{{item.id  }}</td>
+            <td >{{item.name}}</td>
+            <td> {{item.description}}</td>
+
+            <p>
+                <button (click)="onseldelete(item)"  type="button"  class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-trash" aria-hidden="true">Delete</span></button>
+            </p>
+          </tr>
+        </tbody>
+      </table> -->
+<marquee><h1>Statically deleting multiple items...</h1></marquee>
+
+                  <table class="table table-striped">
+                  <thead>
+                      <tr>
+                      <th >Action</th>
+                      <!-- <th scope="col">Index</th> -->
+                        <th scope="col">Article Id</th>
+                        <th scope="col">Article Name</th>
+                        <th scope="col">content</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of arrarticle">
+                        <td><input type="checkbox" (click)="selcheckbox(item)"></td>
+                        <!-- <td>{{i+1}}</td> -->
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.description}}</td>
+                        <td></td>
+                      </tr>
+                  </tbody>
+                </table>
+                <button class="btn-primary" (click)="onseldelete()">Delete</button>
+                <br>
