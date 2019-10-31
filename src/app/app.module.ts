@@ -19,11 +19,20 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import { ListComponent } from './list/list.component';
 import { MatTableModule } from '@angular/material/table';
+
 import {
   MatButtonModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule, MatCheckboxModule} from '@angular/material';
 import { LoginComponent } from './login/login.component';
 import { CheckboxtableComponent } from './checkboxtable/checkboxtable.component';
 import { StaticmultipledeleteComponent } from './staticmultipledelete/staticmultipledelete.component';
+//  import { TreetableComponent } from './treetable/treetable.component';
+// import {TreeTableModule} from 'primeng/treetable';
+// import { HttpModule } from '@angular/http';
+// import {ContextMenuModule} from 'primeng/contextmenu';
+// import { ToastModule } from 'primeng/toast';
+// import { MessageService } from 'primeng/api';
+import { AmexioWidgetModule } from 'amexio-ng-extensions'; // Import Amexio library
+
 
 
 
@@ -44,7 +53,9 @@ import { StaticmultipledeleteComponent } from './staticmultipledelete/staticmult
 
     CheckboxtableComponent,
 
-    StaticmultipledeleteComponent
+    StaticmultipledeleteComponent,
+
+    // TreetableComponent
 
 
 
@@ -64,13 +75,17 @@ import { StaticmultipledeleteComponent } from './staticmultipledelete/staticmult
     ReactiveFormsModule,
     MatButtonModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule,
     FormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,AmexioWidgetModule
+    // TreeTableModule,
+    // HttpModule,
+    // ContextMenuModule,
+    //  ToastModule
 
 
 
   ],
 
-  providers: [],
+  providers: [ ],     //MessageService
   bootstrap: [AppComponent]
 })
 export class AppModule { }

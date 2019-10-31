@@ -11,9 +11,9 @@ export class OrganizationdataService {
 
   constructor(private http:HttpClient) { }
 
-  url:string ='https://3df52e24.ngrok.io/api/Settings/GetDesignations';
-  url2:string='https://3df52e24.ngrok.io/api/Settings/InsUpdateDesignation';
- url3:string='https://3df52e24.ngrok.io/api/Settings/DeleteDesignation?DesignationId=';
+  url:string ='https://5df2226b.ngrok.io/api/Settings/GetDesignations';
+  url2:string='https://5df2226b.ngrok.io/api/Settings/InsUpdateDesignation';
+ url3:string='https://5df2226b.ngrok.io/api/Settings/DeleteDesignation?DesignationId=';
 
  getAllOrganizations(){
   return this.http.get(this.url);

@@ -37,26 +37,47 @@
     <ul class="navbar-nav">
 
        <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" ><h4>Home</h4></a>
+       <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active">
+        <i class="fa fa-home " aria-hidden="true"></i>
+      <span>Home</span>
+
+      </a>
       </li>
+
+
       <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/org']" routerLinkActive="router-link-active" ><h4>Organization Information</h4></a>
+          <a class="nav-link" [routerLink]="['/org']" routerLinkActive="router-link-active">
+            <i class="fa fa-university" aria-hidden="true"></i>
+            <span>Organization Information</span>
+          </a>
         </li>
 
         <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/abt']" routerLinkActive="router-link-active" ><h4>About us</h4></a>
+          <a class="nav-link" [routerLink]="['/abt']" routerLinkActive="router-link-active" >
+            <i class="fa fa-trophy " aria-hidden="true"></i>&nbsp;
+            <span>About us</span>
+          </a>
         </li>
 
         <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/list']" routerLinkActive="router-link-active" ><h4>Context Menu</h4></a>
+          <a class="nav-link" [routerLink]="['/list']" routerLinkActive="router-link-active" >
+            <i class="fa fa-bars" aria-hidden="true"></i>
+            <span>Context Menu</span>
+          </a>
         </li>
 
         <li class="nav-item active">
-            <a class="nav-link" [routerLink]="['/check']" routerLinkActive="router-link-active" ><h4>Checkbox data</h4></a>
+            <a class="nav-link" [routerLink]="['/check']" routerLinkActive="router-link-active" >
+              <i class="fa fa-check-square" aria-hidden="true"></i>
+              <span>Checkbox data</span>
+            </a>
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" [routerLink]="['/static']" routerLinkActive="router-link-active" ><h4>Delete multiple</h4></a>
+            <a class="nav-link" [routerLink]="['/static']" routerLinkActive="router-link-active" >
+              <i class="fa fa-trash" aria-hidden="true"></i>
+              <span>Delete multiple</span>
+            </a>
           </li>
 
           <!-- <li class="nav-item active">
@@ -65,10 +86,19 @@
 
 
 <li class="nav-item" *ngIf="!isLoggedIn()" routerLinkActive="router-link-active">
-    <a class="nav-link" [routerLink]="['']"><h3>Login</h3> <span class="sr-only">(current)</span></a>
+    <a class="nav-link" [routerLink]="['']">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+      <span>Login</span>
+      <span class="sr-only">(current)</span>
+    </a>
     </li>
+
     <li class="nav-item" *ngIf="isLoggedIn()" routerLinkActive="router-link-active">
-    <a class="nav-link" (click)="onLogOut()" ><h3>Log Out</h3> <span class="sr-only">(current)</span></a>
+    <a class="nav-link" (click)="onLogOut()" >
+        <i class="fa fa-unlock" aria-hidden="true"></i>
+      <span>Log Out</span>
+      <span class="sr-only">(current)</span>
+    </a>
     </li>
 
       <li class="nav-item">

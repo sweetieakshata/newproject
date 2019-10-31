@@ -39,8 +39,7 @@
 
 
   <div class="container">
-
-    <table class="table" [contextMenu]="basicMenu" [contextMenuSubject]="arr">
+<table class="table" [contextMenu]="basicMenu" [contextMenuSubject]="arr">
       <thead class="headers">
 
         <th>Index</th>
@@ -69,9 +68,7 @@
         <ng-template contextMenuItem let-item (execute)="showMessage($event.item.name + ' said: ' + $event.item.otherProperty)">
           Bye, {{item?.name}}
         </ng-template>
-        <!-- <ng-template contextMenuItem passive="true">
-          Input something: <input type="text">
-        </ng-template> -->
+
       </context-menu>
       <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
     </table>
